@@ -1,29 +1,15 @@
-[workspace]
-members = [ "soc-gs"]
-resolver = "2"
-
-[workspace.package]
+[package]
+name = "soc-gs"
 version = "0.1.1"
 edition = "2024"
 authors = ["Daniele Mazzotta"]
 
-[workspace.dependencies]
-# Common dependencies
+[dependencies]
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.0", features = ["full"] }
 
-[profile.release]
-lto = true
-codegen-units = 1
-panic = "abort"
 
-# CI-optimized release profile for faster builds
-[profile.ci-release]
-inherits = "release"
-lto = "thin"
-codegen-units = 16
-debug = false
-overflow-checks = false
-
-
+[dev-dependencies]
+# Dependencies needed only for development and testing
+pretty_assertions = "1.4.1"
