@@ -1,48 +1,17 @@
 [workspace]
-members = [
-    "web-server"
-]
+members = [ "soc-gs"]
 resolver = "2"
 
 [workspace.package]
-version = "0.1.17"
-edition = "2021"
-authors = ["Ghanithan Subramani", "Rust Tour Contributors"]
-license = "MIT OR Apache-2.0"
-repository = "https://github.com/ghanithan/rust-tour"
-homepage = "https://github.com/ghanithan/rust-tour"
+version = "0.1.1"
+edition = "2024"
+authors = ["Daniele Mazzotta"]
 
 [workspace.dependencies]
 # Common dependencies
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "1.0", features = ["full"] }
-anyhow = "1.0"
-slab = ">=0.4.10"  # Force minimum version for all workspace members
-
-# Common dependencies used by web-server
-tempfile = "3.8"
-walkdir = "2.4"
-
-# Web server dependencies
-axum = { version = "0.7", features = ["ws", "macros"] }
-tower = "0.4"
-tower-http = { version = "0.5", features = ["cors", "fs", "trace", "compression-gzip", "limit"] }
-hyper = { version = "1.0", features = ["full"] }
-tokio-tungstenite = "0.20"
-futures-util = "0.3"
-portable-pty = "0.8"
-notify = "6.0"
-rust-embed = "8.0"
-mime_guess = "2.0"
-path-absolutize = "3.1"
-uuid = { version = "1.0", features = ["v4"] }
-chrono = { version = "0.4", features = ["serde"] }
-
-# Common dependencies
-thiserror = "1.0"
-tracing = "0.1"
-tracing-subscriber = "0.3"
 
 [profile.release]
 lto = true
